@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\Notifications\ResetPasswordNotification;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -24,7 +24,9 @@ class User extends Authenticatable
         'password',
         'cedula',
         'email',
-        'surname'
+        'surname',
+        'country',
+        'about'
     ];
 
     /**
